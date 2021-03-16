@@ -41,6 +41,9 @@ after you pull the kitematic/hello-world-nginx images
   - this means docker run port 80 forward to port 80 in container,
   - then followed by the image name, this runs a container with a server at an ip @ port 80
 
-- docker stop
+- docker stop [container id]
+
+  - this will stop the container id you are running, you can use full or partial string
+  - followed by docker ps or docker ps -a
 
 There is a difference between containers and images, images needs running containers to be executed
