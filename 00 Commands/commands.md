@@ -1,19 +1,46 @@
-https://docs.docker.com/engine/reference/commandline/docker/
+### https://docs.docker.com/engine/reference/commandline/docker/
 
-docker pull [repo name]
+**[ brackets ] strings without quotes for commands**
 
-docker run [image name]
+- docker pull [repo name]
 
-docker ps -a
+  - pull images like hello-world
 
-docker ps
+- docker images
 
-docker images
+  -will shows all docker image
 
-docker stop
+- docker run [image name]
 
-docker rm [container name]
+  - for running images in a container
 
-docker rmi [image name]
+- docker ps
 
-## There is a difference between containers and images, images needs running containers to be executed
+  - lists all running containers
+
+- docker ps -a
+
+  - lists all containers on the system
+  - you'll see container ID, alias (you can use instead of id) and status
+
+- docker rm [container name]
+
+  - removes a container, you can use the full string id or just a few characters
+  - usually run this command then docker ps -a just the check, then you can clear the image if you need to...just for training
+
+- docker rmi [image name]
+
+  - this removes a image after you remove the container
+  - you can use the id string or just a few characters
+  - usually followed by docker images
+
+after you pull the kitematic/hello-world-nginx images
+
+- docker run -p 80:80 kitematic/hello-world-nginx
+
+  - this means docker run port 80 forward to port 80 in container,
+  - then followed by the image name, this runs a container with a server at an ip @ port 80
+
+- docker stop
+
+There is a difference between containers and images, images needs running containers to be executed
