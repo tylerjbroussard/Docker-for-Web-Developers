@@ -72,3 +72,9 @@ Use microsofts asp.net core container
 
   - the (pwd) syntax is for mac or linux
   - powershell is like {PWD}, %cd$ is for dos
+
+docker controlled volumes
+
+- docker inspect mycontainer
+
+- docker rm -v lastContainer
