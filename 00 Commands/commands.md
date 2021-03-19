@@ -47,3 +47,11 @@ after you pull the kitematic/hello-world-nginx images
   - followed by docker ps or docker ps -a
 
 There is a difference between containers and images, images needs running containers to be executed
+
+Creating a data volume for holding source code
+
+- docker run -p 8080:3000 -v /var/www/ node
+  - the -v stands for volume and the area it writes to is the docker host which is the /var/www/ space
+  - to locate the volume you can run:
+  - docker inspect [ mycontainer ]
+  - you'll then see the mounts response, name, source, destination, driver, and rw boolean
