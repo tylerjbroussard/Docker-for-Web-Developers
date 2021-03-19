@@ -51,7 +51,24 @@ There is a difference between containers and images, images needs running contai
 Creating a data volume for holding source code
 
 - docker run -p 8080:3000 -v /var/www/ node
+
   - the -v stands for volume and the area it writes to is the docker host which is the /var/www/ space
   - to locate the volume you can run:
   - docker inspect [ mycontainer ]
   - you'll then see the mounts response, name, source, destination, driver, and rw boolean
+
+  Customizing the host location for a data volume
+
+  - docker run -p 8080:3000 -v ${PWD}:/var/www node
+    - see slides seciton 5 - hooking your source code into a container for review
+
+Recipe:
+
+Use microsofts asp.net core container
+
+- docker pull mcr.microsoft.com/dotnet/core/sdk
+
+- docker run -it -p 8080:5000 -v ${PWD}:/app -w "/app" mcr.microsoft.com/dotnet/core/sdk /bin/bash
+
+  - the (pwd) syntax is for mac or linux
+  - powershell is like {PWD}, %cd$ is for dos
