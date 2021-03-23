@@ -78,3 +78,73 @@ docker controlled volumes
 - docker inspect mycontainer
 
 - docker rm -v lastContainer
+
+### Building custom images
+
+{ https://docs.docker.com/engine/reference/builder/#syntax }
+
+Dockerfile creations
+
+- Syntax - definition
+  - FROM
+    - create an image from another image keyword, building on top using layered file system
+  - LABEL
+    - who maintains it, (author)
+  - RUN
+    - run npm install, run lets you run other commands
+  - COPY
+    - you can copy source code into the container using copy instruction
+  - ENTRYPOINT
+    - what is the Main(), or main entry point
+  - WORKDIR
+    - sets the context for where that container will run, what folder has package.json
+  - EXPOSE
+    - expose a port
+  - ENV
+    - environment variables
+  - VOLUME
+    - define volumes and control how it stores on host system
+
+### Dockerfile example
+
+FROM node
+LABEL author='Sam'
+COPY ./var/www
+WORKDIR /var/www
+RUN npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "server.js"]
+
+//class example
+
+FROM node:lastest
+
+LABEL author="Dan Wahlin"
+
+ENV NODE_ENV=production
+ENV PORT=3000
+
+COPY ./var/www
+WORKDIR /var/www
+
+RUN npm install
+
+VOLUME ['/var/www']
+
+EXPOSE $PORT
+
+ENTRYPOINT ["npm", "start"]
+
+### Custom Dockerfiles
+
+Once you have a your Dockerfile created, run docker build in cli
+
+docker build -t <your username>/node
+
+- -t is your tag name
+- your username is tag name
+- /node is the build context
+
+Building a cusotm image
+
+Publishing an image to Docker hub
