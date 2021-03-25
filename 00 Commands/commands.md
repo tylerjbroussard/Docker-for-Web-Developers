@@ -145,6 +145,11 @@ docker build -t <your username>/node
 - your username is tag name
 - /node is the build context
 
+docker build -t dotnetasp-dev -f Dockerfile .
+
+- https://docs.docker.com/engine/reference/builder/#title
+- https://docker-curriculum.com/#webapps-with-docker
+
 Building a cusotm image
 
 Publishing an image to Docker hub
